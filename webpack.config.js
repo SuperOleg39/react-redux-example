@@ -35,7 +35,11 @@ let config = {
         new HtmlWebpackPlugin({
             template: './index.html'
         })
-    ]
+    ],
+
+    devServer: {
+        historyApiFallback: true
+    }
 };
 
 module.exports = config;

@@ -1,27 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { changeName, changeLastName, changeMiddleName } from '../../core/actions';
-import AppComponent from './app.component';
+import { Link } from 'react-router';
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        name: state.name,
-        lastName: state.lastName,
-        middleName: state.middleName
-    }
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        onChangeName: (val) => dispatch(changeName(val)),
-        onChangeLastName: (val) => dispatch(changeLastName(val)),
-        onChangeMiddleName: (val) => dispatch(changeMiddleName(val))
-    }
-};
-
-const App = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AppComponent);
+const App = (props) => (
+    <div>
+        <div><Link to="/">Home</Link></div>
+        <div><Link to="/form">Form</Link></div>
+        <div><Link to="/123">fail</Link></div>
+        
+        <div>{props.children}</div>
+    </div>
+);
 
 export default App;

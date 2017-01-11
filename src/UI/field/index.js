@@ -1,16 +1,30 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import { Control } from 'react-redux-form';
 
-class Field extends Component {
+import FieldComponent from './field.component';
+
+const Field = (props) => {
+    const { validators, messages, model, label } = props;
     
-    handleChange = (e) => {
-        this.props.onChange(e.target.value);
-    };
-    
-    render() {
-        return (
-            <input type="text" value={this.props.model} onChange={this.handleChange} />
-        )
-    }
-}
+    return (
+        <Control
+            component={FieldComponent}
+            model={model}
+            validators={validators}
+            validateOn="blur"
+            mapProps={{
+                onChange: (props) => props.onChange,
+                onBlur: (props) => props.onBlur,
+                onFocus: (props) => props.onFocus,
+                value: (props) => props.modelValue,
+            }}
+            controlProps={{
+                model,
+                label,
+                messages,
+            }}
+        />
+    );
+};
 
 export default Field;
