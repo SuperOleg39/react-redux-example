@@ -1,0 +1,1183 @@
+[
+  {
+    "path": "document_date",
+    "required": true,
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неправильная дата выдачи паспорта",
+    "dependent_value": []
+  },
+  {
+    "path": "birthday",
+    "required": true,
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неправильно указана дата рождения заёмщика",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_date",
+    "required": true,
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неверная дата регистрации проживания",
+    "dependent_value": []
+  },
+  {
+    "path": "current_residence_date",
+    "required": true,
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неверная дата регистрации проживания по фактическому адресу",
+    "dependent_path": "has_current_address",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "employed_from",
+    "required": true,
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неверная дата начала работы",
+    "dependent_value": []
+  },
+  {
+    "path": "name",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Имя заёмщика содержит некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "surname",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Фамилия заёмщика содержит некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "patronymic",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Отчество заёмщика содержит некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "email",
+    "required": true,
+    "min_length": 1,
+    "max_length": 40,
+    "regex_js": "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+",
+    "allowed_values": [],
+    "message": "Неправильный адрес электронной почты",
+    "dependent_value": []
+  },
+  {
+    "path": "document_series",
+    "required": true,
+    "min_length": 4,
+    "max_length": 4,
+    "regex_js": "\\d{4}",
+    "allowed_values": [],
+    "message": "Неверная серия паспорта",
+    "dependent_value": []
+  },
+  {
+    "path": "document_number",
+    "required": true,
+    "min_length": 6,
+    "max_length": 6,
+    "regex_js": "\\d{6}",
+    "allowed_values": [],
+    "message": "Неверный номер паспорта",
+    "dependent_value": []
+  },
+  {
+    "path": "document_issuer",
+    "required": true,
+    "min_length": 5,
+    "max_length": 200,
+    "allowed_values": [],
+    "message": "Неверно указано учреждение, выдавшее паспорт",
+    "dependent_value": []
+  },
+  {
+    "path": "document_unit_code",
+    "required": true,
+    "min_length": 7,
+    "max_length": 7,
+    "regex_js": "\\d{3}-\\d{3}",
+    "allowed_values": [],
+    "message": "Неправильный код подразделения",
+    "dependent_value": []
+  },
+  {
+    "path": "sex",
+    "required": true,
+    "min_length": 1,
+    "max_length": 1,
+    "allowed_values": [
+      "M",
+      "F"
+    ],
+    "dictionary": "genders",
+    "message": "Не выбран пол заемщика",
+    "dependent_value": []
+  },
+  {
+    "path": "marital_status",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "marital_statuses",
+    "message": "Неверное значение семейного положения",
+    "dependent_value": []
+  },
+  {
+    "path": "dependants_count",
+    "required": true,
+    "min_length": 1,
+    "max_length": 2,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверно указано количество иждивенцев",
+    "dependent_value": []
+  },
+  {
+    "path": "spouse_surname",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Фамилия супруга содержит некорректные символы",
+    "dependent_path": "marital_status",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "spouse_name",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Имя супруга содержит некорректные символы",
+    "dependent_path": "marital_status",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "spouse_patronymic",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Отчество супруга содержит некорректные символы",
+    "dependent_path": "marital_status",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "spouse_cell_phone",
+    "required": true,
+    "min_length": 10,
+    "max_length": 10,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный номер телефона супруга",
+    "dependent_path": "marital_status",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "registration_housing_conditions",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "housing_statuses",
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "current_housing_conditions",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "housing_statuses",
+    "message": "Неправильный формат значения поля",
+    "dependent_path": "has_current_address",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "education",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "dictionary": "education_types",
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employment_position_type",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "dictionary": "employment_position_types",
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_activity",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "dictionary": "activity_types",
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employment_income",
+    "required": true,
+    "min_length": 3,
+    "max_length": 7,
+    "regex_js": "\\d{3,7}",
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "initial_payment",
+    "max_length": 7,
+    "regex_js": "\\d{3,7}",
+    "allowed_values": [],
+    "message": "Неправильная величина первогоначального взноса",
+    "dependent_value": []
+  },
+  {
+    "path": "loan_period",
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный срок кредита",
+    "dependent_value": []
+  },
+  {
+    "path": "home_phone",
+    "min_length": 10,
+    "max_length": 10,
+    "regex_js": "[0-8]\\d+",
+    "allowed_values": [],
+    "message": "Неправильный номер домашнего телефона",
+    "dependent_value": []
+  },
+  {
+    "path": "cell_phone",
+    "required": true,
+    "min_length": 10,
+    "max_length": 10,
+    "regex_js": "9\\d+",
+    "allowed_values": [],
+    "message": "Неправильный номер мобильного телефона заёмщика",
+    "dependent_value": []
+  },
+  {
+    "path": "work_phone",
+    "required": true,
+    "min_length": 10,
+    "max_length": 10,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный номер рабочего телефона",
+    "dependent_value": []
+  },
+  {
+    "path": "contact_person.name",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Имя контактного лица содержит некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "contact_person.surname",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Фамилия контактного лица содержит некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "contact_person.patronymic",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "regex_js": "[а-яА-ЯёЁ]([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?)",
+    "allowed_values": [],
+    "message": "Отчество контактного лица содержит некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "contact_person.phone",
+    "required": true,
+    "min_length": 10,
+    "max_length": 10,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный номер телефона контактного лица",
+    "dependent_value": []
+  },
+  {
+    "path": "contact_person.relation",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "dictionary": "relation_types",
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.area_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный район в адресе работодателя",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.area_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный район в адресе регистрации",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.area_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный район в адресе проживания",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.city_code",
+    "required": true,
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный город в адресе работодателя",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.city_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный город в адресе регистрации",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.city_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный город в адресе проживания",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.region_code",
+    "required": true,
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный регион в адресе работодателя",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.region_code",
+    "required": true,
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный регион в адресе регистрации",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.region_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный регион в адресе проживания",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.settlement_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный населённый пункт в адресе работодателя",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.settlement_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный населённый пункт в адресе регистрации",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.settlement_code",
+    "min_length": 12,
+    "max_length": 13,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверный населённый пункт в адресе проживания",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.street_code",
+    "required": true,
+    "min_length": 1,
+    "max_length": 17,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверно указана улица в адресе работодателя",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.street_code",
+    "min_length": 1,
+    "max_length": 17,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверно указана улица в адресе регистрации",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.street_code",
+    "min_length": 1,
+    "max_length": 17,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неверно указана улица в адресе проживания",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.area",
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.building",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.city",
+    "required": true,
+    "min_length": 3,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.construction",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.flat",
+    "min_length": 1,
+    "max_length": 10,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.house",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.postal_code",
+    "required": true,
+    "min_length": 6,
+    "max_length": 6,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный индекс",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.region",
+    "required": true,
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.settlement",
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_address.street",
+    "required": true,
+    "min_length": 3,
+    "max_length": 40,
+    "regex_js": "[A-Za-zА-Яа-яЁё0-9 \\-\\.\\/\\(\\)_]+",
+    "allowed_values": [],
+    "message": "Неправильное название улицы",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.area",
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.building",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.city",
+    "required": true,
+    "min_length": 3,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_path": "has_current_address",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "current_address.construction",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.flat",
+    "min_length": 1,
+    "max_length": 10,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.house",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.postal_code",
+    "required": true,
+    "min_length": 6,
+    "max_length": 6,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный индекс",
+    "dependent_path": "has_current_address",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "current_address.region",
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.settlement",
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "current_address.street",
+    "min_length": 3,
+    "max_length": 40,
+    "regex_js": "[A-Za-zА-Яа-яЁё0-9 \\-\\.\\/\\(\\)_]+",
+    "allowed_values": [],
+    "message": "Неправильное название улицы",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.area",
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.building",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.city",
+    "required": true,
+    "min_length": 3,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.construction",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.flat",
+    "min_length": 1,
+    "max_length": 10,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.house",
+    "min_length": 1,
+    "max_length": 10,
+    "regex_js": "[0-9А-Яа-я\\/\\- ]+",
+    "allowed_values": [],
+    "message": "Неправильный номер",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.postal_code",
+    "required": true,
+    "min_length": 6,
+    "max_length": 6,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный индекс",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.region",
+    "required": true,
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.settlement",
+    "min_length": 1,
+    "max_length": 40,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_address.street",
+    "min_length": 3,
+    "max_length": 40,
+    "regex_js": "[A-Za-zА-Яа-яЁё0-9 \\-\\.\\/\\(\\)_]+",
+    "allowed_values": [],
+    "message": "Неправильное название улицы",
+    "dependent_value": []
+  },
+  {
+    "path": "birth_address",
+    "required": true,
+    "min_length": 1,
+    "max_length": 200,
+    "allowed_values": [],
+    "message": "Неправильно указано место рождения",
+    "dependent_value": []
+  },
+  {
+    "path": "code_word",
+    "required": true,
+    "min_length": 1,
+    "max_length": 30,
+    "regex_js": "[а-яА-ЯёЁ][а-яА-ЯёЁ-\\s]*[а-яА-ЯёЁ]",
+    "allowed_values": [],
+    "message": "Кодовое слово должно содержать только буквы",
+    "dependent_value": []
+  },
+  {
+    "path": "additional_work_phone",
+    "min_length": 1,
+    "max_length": 6,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный добавочный номер рабочего телефона",
+    "dependent_value": []
+  },
+  {
+    "path": "has_current_address",
+    "min_length": 1,
+    "max_length": 1,
+    "regex_js": "\\d+",
+    "allowed_values": [
+      "1"
+    ],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employment_position",
+    "required": true,
+    "min_length": 1,
+    "max_length": 50,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "employer",
+    "required": true,
+    "min_length": 1,
+    "max_length": 100,
+    "allowed_values": [],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "life_insurance",
+    "min_length": 1,
+    "max_length": 1,
+    "regex_js": "\\d+",
+    "allowed_values": [
+      "1"
+    ],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "work_insurance",
+    "min_length": 1,
+    "max_length": 1,
+    "regex_js": "\\d+",
+    "allowed_values": [
+      "1"
+    ],
+    "message": "Неправильный формат значения поля",
+    "dependent_value": []
+  },
+  {
+    "path": "old_name",
+    "regex_js": "(([а-яА-ЯёЁ])([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?))",
+    "allowed_values": [],
+    "message": "Некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "old_surname",
+    "regex_js": "(([а-яА-ЯёЁ])([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?))",
+    "allowed_values": [],
+    "message": "Некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "old_patronymic",
+    "regex_js": "(([а-яА-ЯёЁ])([а-яА-ЯёЁ\\- ]+[а-яА-ЯёЁ]|[а-яА-ЯёЁ]?))",
+    "allowed_values": [],
+    "message": "Некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "name_lat",
+    "regex_js": "[A-z-][A-z -]+[A-z-]",
+    "allowed_values": [],
+    "message": "Только символы латинского алфавита, тире и пробел",
+    "dependent_value": []
+  },
+  {
+    "path": "surname_lat",
+    "regex_js": "[A-z-][A-z -]+[A-z-]",
+    "allowed_values": [],
+    "message": "Только символы латинского алфавита, тире и пробел",
+    "dependent_value": []
+  },
+  {
+    "path": "children_count",
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "marriage_registration_date",
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неверно указана дата",
+    "dependent_value": []
+  },
+  {
+    "path": "spouse_birth_date",
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неверно указана дата",
+    "dependent_value": []
+  },
+  {
+    "path": "spouse_phone",
+    "min_length": 10,
+    "max_length": 10,
+    "regex_js": "9\\d+",
+    "allowed_values": [],
+    "message": "Неправильный номер мобильного телефона",
+    "dependent_value": []
+  },
+  {
+    "path": "live_from_date",
+    "regex_js": "\\d{1,2}\\.\\d{1,2}\\.(19|[2-9]\\d)\\d{2}",
+    "allowed_values": [],
+    "message": "Неверно указана дата",
+    "dependent_value": []
+  },
+  {
+    "path": "registration_phone",
+    "min_length": 10,
+    "max_length": 10,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Неправильный номер домашнего телефона",
+    "dependent_value": []
+  },
+  {
+    "path": "cell_operator_type",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "cell_operator_type",
+    "dependent_value": []
+  },
+  {
+    "path": "cell_contract_type",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "cell_contract_type",
+    "dependent_value": []
+  },
+  {
+    "path": "communication_type",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "communication_type",
+    "dependent_value": []
+  },
+  {
+    "path": "employment",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "employment_types",
+    "dependent_value": []
+  },
+  {
+    "path": "pension_from",
+    "allowed_values": [],
+    "dependent_value": []
+  },
+  {
+    "path": "current_field_experience_months",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "total_experience_months",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Некорректные символы",
+    "dependent_value": []
+  },
+  {
+    "path": "employer_company_status",
+    "allowed_values": [],
+    "dictionary": "employer_company_status",
+    "dependent_value": []
+  },
+  {
+    "path": "additional_income_type",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "additional_income_type",
+    "dependent_value": []
+  },
+  {
+    "path": "additional_income",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Доступны только числа",
+    "dependent_value": []
+  },
+  {
+    "path": "spouse_income",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Доступны только числа",
+    "dependent_value": []
+  },
+  {
+    "path": "total_month_expenses",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Доступны только числа",
+    "dependent_value": []
+  },
+  {
+    "path": "tax_payer_number",
+    "allowed_values": [],
+    "dependent_value": []
+  },
+  {
+    "path": "pension_insurance",
+    "allowed_values": [],
+    "dependent_value": []
+  },
+  {
+    "path": "pension_certificate_number",
+    "allowed_values": [],
+    "dependent_value": []
+  },
+  {
+    "path": "has_car",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "car_registration_document_is_shown",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "dependent_path": "has_car",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "has_deposits_in_other_banks",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "has_account_in_bank",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "dependent_value": []
+  },
+  {
+    "path": "has_bank_card",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "bank_card_type",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "bank_card_type",
+    "dependent_path": "has_bank_card",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "bank_card_kind",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "bank_card_kind",
+    "dependent_path": "has_bank_card",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "bank_card_issuer",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "credit_organization",
+    "dependent_path": "has_bank_card",
+    "dependent_value": [
+      "1"
+    ]
+  },
+  {
+    "path": "own_house",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "own_flat",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "own_cottage",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "own_land",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "own_garage",
+    "required": true,
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "own_other_realty",
+    "regex_js": "0|1",
+    "allowed_values": [],
+    "message": "Неверный формат поля",
+    "dependent_value": []
+  },
+  {
+    "path": "credit_count",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "credit_count_type",
+    "dependent_value": []
+  },
+  {
+    "path": "previous_credit_organization",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "credit_organization",
+    "dependent_value": []
+  },
+  {
+    "path": "previous_credit_type",
+    "required": true,
+    "allowed_values": [],
+    "dictionary": "credit_type",
+    "dependent_value": []
+  },
+  {
+    "path": "other_credit_amount",
+    "required": true,
+    "regex_js": "\\d+",
+    "allowed_values": [],
+    "message": "Доступны только числа",
+    "dependent_value": []
+  },
+  {
+    "path": "international_passport",
+    "allowed_values": [],
+    "dependent_value": []
+  },
+  {
+    "path": "drive_license",
+    "allowed_values": [],
+    "dependent_value": []
+  }
+]

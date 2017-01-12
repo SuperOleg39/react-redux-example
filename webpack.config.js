@@ -27,6 +27,10 @@ let config = {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
             }
         ]
     },
@@ -38,6 +42,7 @@ let config = {
     ],
 
     devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
         historyApiFallback: true
     }
 };

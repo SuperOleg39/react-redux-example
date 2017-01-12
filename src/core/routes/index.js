@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import App from '../../pages/app';
+import App from '../../pages/app/app.container';
 import Form from '../../pages/form';
 import NotFound from '../../pages/404';
 
