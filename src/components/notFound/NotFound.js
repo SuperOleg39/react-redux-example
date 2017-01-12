@@ -1,6 +1,6 @@
 import React from 'react';
 
-let NotFound = (props) => (
+const NotFound = () => (
     <h1>404 page not found</h1>
 );
 

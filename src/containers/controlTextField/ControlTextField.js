@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Control } from 'react-redux-form';
 
-import FieldComponent from './field.component';
+import TextField from '../../components/textField/TextField';
 
-const Field = (props) => {
+const ControlTextField = (props) => {
     const { validators, messages, model, label } = props;
-    
+
     return (
         <Control
-            component={FieldComponent}
+            component={TextField}
             model={model}
             validators={validators}
             validateOn="blur"
@@ -27,4 +27,11 @@ const Field = (props) => {
     );
 };
 
-export default Field;
+ControlTextField.propTypes = {
+    model: React.PropTypes.string.isRequired,
+    validators: React.PropTypes.object,
+    messages: React.PropTypes.object,
+    label: React.PropTypes.string
+};
+
+export default ControlTextField;

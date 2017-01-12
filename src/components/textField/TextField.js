@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Errors } from 'react-redux-form';
 
-const FieldComponent = (props) => {
+const TextField = (props) => {
     const { model, label, messages, value, onChange, onBlur, onFocus } = props;
 
     return (
@@ -9,7 +9,7 @@ const FieldComponent = (props) => {
             <label>{label}</label>
             <input
                 type="text"
-                value={value}
+                name={model} value={value}
                 onFocus={onFocus} onChange={onChange} onBlur={onBlur}
             />
             <Errors
@@ -23,4 +23,14 @@ const FieldComponent = (props) => {
     )
 };
 
-export default FieldComponent;
+TextField.propTypes = {
+    model: React.PropTypes.string.isRequired,
+    label: React.PropTypes.string,
+    messages: React.PropTypes.object,
+    value: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+    onBlur: React.PropTypes.func,
+    onFocus: React.PropTypes.func
+};
+
+export default TextField;

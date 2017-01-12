@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { isRequired } from '../../core/services/rulesService';
-import Field from '../../UI/field';
+import { isRequired } from '../../core/services/validatorService';
+import ControlTextField from '../controlTextField/ControlTextField';
 
-const Form = (props) => (
+const Form = () => (
     <form>
-        <Field
+        <ControlTextField
             model="user.name"
             label="Имя"
             validators={{
@@ -15,7 +15,7 @@ const Form = (props) => (
                 isRequired: 'Name is required'
             }}
         />
-        <Field
+        <ControlTextField
             model="user.lastName"
             label="Фамилия"
             validators={{
@@ -25,7 +25,7 @@ const Form = (props) => (
                 isRequired: 'Last name is required'
             }}
         />
-        <Field
+        <ControlTextField
             model="user.middleName"
             label="Отчество"
         />
