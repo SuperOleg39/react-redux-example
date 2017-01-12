@@ -1,8 +1,8 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
-import { user, userForm } from '../models/userForm/userForm.reducer';
-import widget from '../models/widget/widget.reducer';
+import { user, userForm } from '../modules/userForm';
+import widget from '../modules/widget';
 
 const rootReducer = combineReducers({
     routing,

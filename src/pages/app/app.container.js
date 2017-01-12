@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRules } from '../../core/models/widget/rules/rules.actions';
+import { fetchRulesCreator } from '../../core/modules/widget/rules';
 import AppComponent from './app.component';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,13 +12,13 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchRules: () => dispatch(fetchRules())
+        fetchRules: () => dispatch(fetchRulesCreator())
     }
 };
 
 class App extends Component {
     componentWillMount() {
-        this.props.fetchRules();
+        return this.props.fetchRules();
     }
 
     render() {

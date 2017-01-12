@@ -1,9 +1,7 @@
 import React from 'react';
-import validator from 'validator';
 
+import { isRequired } from '../../core/services/rulesService';
 import Field from '../../UI/field';
-
-const isRequired = (value) => !validator.isEmpty(''+value);
 
 const Form = (props) => (
     <form>

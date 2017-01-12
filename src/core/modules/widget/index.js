@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { isLoading } from './loading/loading.reducers';
-import { rules } from './rules/rules.reducers';
+import isLoading from './loading';
+import rules from './rules';
 
 const widget = combineReducers({
     isLoading,
