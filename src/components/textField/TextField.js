@@ -1,12 +1,14 @@
 import React, { PropTypes } from 'react';
 import { Errors } from 'react-redux-form';
 
+import './textField.css';
+
 const TextField = (props) => {
     const { model, label, messages, value, onChange, onBlur, onFocus } = props;
 
     return (
         <div>
-            <label>{label}</label>
+            <label>{label}</label>&nbsp;
             <input
                 type="text"
                 name={model} value={value}

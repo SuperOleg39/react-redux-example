@@ -43,6 +43,13 @@ let config = {
             {
                 test: /\.json$/,
                 loader: 'json-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader']
+                })
             }
         ]
     },
@@ -73,13 +80,14 @@ let config = {
 if (__DEV__) {
     config.devtool = 'inline-source-map';
     config.devServer = {
-        contentBase: path.resolve(__dirname, 'dist'),
+        contentBase: path.resolve(__dirname, 'src'),
         historyApiFallback: true,
         inline: true,
         hot: true,
         port: 8080
     };
     config.plugins.push(
+        new ExtractTextPlugin('[name].css'),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
     );
