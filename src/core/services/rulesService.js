@@ -1,4 +1,4 @@
-const rules = './rules.json';
+const rules = 'core/modules/widget/rules/rules.json';
 const loans = './loan.json';
 
 export const getRules = () => fetch(rules);
