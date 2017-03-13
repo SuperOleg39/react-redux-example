@@ -31,7 +31,8 @@ ControlTextField.propTypes = {
     model: React.PropTypes.string.isRequired,
     validators: React.PropTypes.object,
     messages: React.PropTypes.object,
-    label: React.PropTypes.string
+    label: React.PropTypes.string,
+    modelValue: React.PropTypes.string,
 };
 
 export default ControlTextField;

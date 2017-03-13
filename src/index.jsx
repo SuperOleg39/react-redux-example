@@ -5,13 +5,13 @@ import createAppComponent from './app';
 
 const mountNode = document.getElementById('root');
 const initialState = {
-   widget: {
-       isLoading: true
-   }
+    widget: {
+        isLoading: true,
+    },
 };
 const App = createAppComponent(initialState);
 
 ReactDOM.render(
     <App />,
-    mountNode
+    mountNode,
 );

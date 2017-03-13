@@ -8,13 +8,13 @@ import middleName from './personal/middleName';
 const initialState = {
     name: '',
     lastName: '',
-    middleName: ''
+    middleName: '',
 };
 
 export const user = combineReducers({
     name,
     lastName,
-    middleName
+    middleName,
 });
 
 export const userForm = formReducer('user', initialState);

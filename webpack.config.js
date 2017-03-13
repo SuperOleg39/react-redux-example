@@ -32,6 +32,10 @@ let config = {
         chunkFilename: '[id].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     
     module: {
         rules: [

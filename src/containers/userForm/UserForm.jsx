@@ -9,20 +9,20 @@ const Form = () => (
             model="user.name"
             label="Имя"
             validators={{
-                isRequired
+                isRequired,
             }}
             messages={{
-                isRequired: 'Name is required'
+                isRequired: 'Name is required',
             }}
         />
         <ControlTextField
             model="user.lastName"
             label="Фамилия"
             validators={{
-                isRequired
+                isRequired,
             }}
             messages={{
-                isRequired: 'Last name is required'
+                isRequired: 'Last name is required',
             }}
         />
         <ControlTextField

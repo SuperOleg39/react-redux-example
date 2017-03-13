@@ -5,7 +5,7 @@ import rules from './rules';
 
 const widget = combineReducers({
     isLoading,
-    rules
+    rules,
 });
 
 export default widget;

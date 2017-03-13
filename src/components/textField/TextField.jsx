@@ -8,21 +8,25 @@ const TextField = (props) => {
 
     return (
         <div>
-            <label>{label}</label>&nbsp;
+            <label htmlFor={model}>{label}</label>&nbsp;
             <input
                 type="text"
-                name={model} value={value}
-                onFocus={onFocus} onChange={onChange} onBlur={onBlur}
+                id={model}
+                name={model}
+                value={value}
+                onFocus={onFocus}
+                onChange={onChange}
+                onBlur={onBlur}
             />
             <Errors
                 model={model}
                 messages={messages}
-                show={{touched: true}}
+                show={{ touched: true }}
                 wrapper={(props) => <div className="errors">{props.children}</div>}
                 component={(props) => <div className="error">{props.children}</div>}
             />
         </div>
-    )
+    );
 };
 
 TextField.propTypes = {
@@ -32,7 +36,8 @@ TextField.propTypes = {
     value: React.PropTypes.string,
     onChange: React.PropTypes.func,
     onBlur: React.PropTypes.func,
-    onFocus: React.PropTypes.func
+    onFocus: React.PropTypes.func,
+    children: React.PropTypes.node,
 };
 
 export default TextField;

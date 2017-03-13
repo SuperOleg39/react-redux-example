@@ -1,4 +1,4 @@
-import React, {  PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 const AppComponent = (props) => {
@@ -16,12 +16,12 @@ const AppComponent = (props) => {
                     : '...'
             }
         </div>
-    )
+    );
 };
 
 AppComponent.propTypes = {
     children: React.PropTypes.node,
-    isLoading: React.PropTypes.bool
+    isLoading: React.PropTypes.bool,
 };
 
 export default AppComponent;

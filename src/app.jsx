@@ -15,7 +15,7 @@ function createAppComponent(preloadState) {
             <Router history={history} routes={routes} />
         </Provider>
     );
-    
+
     return App;
 }
 

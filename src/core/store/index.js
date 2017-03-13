@@ -8,8 +8,8 @@ const configureStore = (preloadState) => createStore(
     rootReducer,
     preloadState,
     composeEnhancers(
-        applyMiddleware(thunk)
-    )
+        applyMiddleware(thunk),
+    ),
 );
 
 export default configureStore;
