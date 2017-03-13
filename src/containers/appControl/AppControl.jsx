@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 import { fetchRulesCreator } from '../../core/modules/widget/rules';
 import AppLayout from '../../components/appLayout/AppLayout';
 
-const mapStateToProps = (state) => ({ isLoading: state.widget.rules.isLoading });
+const mapStateToProps = (state) => ({
+    isLoading: state.widget.rules.isLoading,
+});
 
-const mapDispatchToProps = (dispatch) => ({ fetchRules: () => dispatch(fetchRulesCreator()) });
+const mapDispatchToProps = (dispatch) => ({
+    fetchRules: () => dispatch(fetchRulesCreator()),
+});
 
-class App extends Component {
+class AppControl extends Component {
     componentWillMount() {
         return this.props.fetchRules();
     }
@@ -17,20 +21,20 @@ class App extends Component {
         const { children, isLoading } = this.props;
 
         return (
-            <AppLayout children={children} isLoading={isLoading} />
-        )
+            <AppLayout isLoading={isLoading}>{children}</AppLayout>
+        );
     }
 }
 
-App.propTypes = {
+AppControl.propTypes = {
     fetchRules: React.PropTypes.func.isRequired,
     children: React.PropTypes.node,
-    isLoading: React.PropTypes.bool
+    isLoading: React.PropTypes.bool,
 };
 
-App = connect(
+AppControl = connect(
     mapStateToProps,
-    mapDispatchToProps
-)(App);
+    mapDispatchToProps,
+)(AppControl);
 
-export default App;
+export default AppControl;

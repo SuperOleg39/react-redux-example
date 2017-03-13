@@ -6,8 +6,8 @@
   "scripts": {
     "start": "better-npm-run dev:local",
     "build": "better-npm-run build:local",
-    "lint": "eslint ./src",
-    "lint:fix": "eslint --fix ./src"
+    "lint": "eslint --ext .js --ext .jsx ./src",
+    "lint:fix": "eslint --ext .js --ext .jsx --fix ./src"
   },
   "betterScripts": {
     "dev:local": {
