@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const FETCH_REQUEST = 'FETCH_REQUEST';
 const FETCH_FAILURE = 'FETCH_FAILURE';
 const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -28,6 +30,23 @@ export const fetchFailure = (error) => ({
     payload: error,
 });
 
-export const fetchSuccess = () => ({
+export const fetchSuccess = (data) => ({
     type: FETCH_SUCCESS,
+    payload: data,
 });
+
+export function fetchData() {
+    return (dispatch) => {
+        dispatch(fetchRequest());
+
+        return axios.get('http://example.com/info')
+            .then((response) => dispatch(fetchSuccess(response.data)))
+            .catch((error) => dispatch(fetchFailure(error)));
+    };
+}
+
+export const types = {
+    FETCH_REQUEST,
+    FETCH_FAILURE,
+    FETCH_SUCCESS,
+};

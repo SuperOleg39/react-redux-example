@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRulesCreator } from '../../core/modules/widget/rules';
+import { fetchRules } from '../../core/modules/widget/rules';
 import AppLayout from '../../components/appLayout/AppLayout';
 
 const mapStateToProps = (state) => ({
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchRules: () => dispatch(fetchRulesCreator()),
+    fetchRules: () => dispatch(fetchRules()),
 });
 
 class AppControl extends Component {

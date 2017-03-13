@@ -1,6 +1,7 @@
-const rules = 'core/modules/widget/rules/rules.json';
-const loans = './loan.json';
+import axios from 'axios';
 
-export const getRules = () => fetch(rules);
+const rules = require('core/modules/widget/rules/rules.json');
 
-export const getLoans = () => fetch(loans);
+const getRules = () => axios.get(rules);
+
+export default getRules;

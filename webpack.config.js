@@ -10,9 +10,9 @@ const env = process.env.NODE_ENV;
 const __DEV__ = env === 'development';
 const __PRODUCTION__ = env === 'production';
 
-let config = {
+const config = {
     context: path.resolve(__dirname, 'src'),
-    
+
     entry: {
         main: './index',
         vendor: [
@@ -23,10 +23,11 @@ let config = {
             'react-router-redux',
             'redux-thunk',
             'redux',
-            'react-redux-form'
+            'react-redux-form',
+            'axios',
         ]
     },
-    
+
     output: {
         filename: '[name].bundle.js',
         chunkFilename: '[id].bundle.js',
@@ -34,9 +35,10 @@ let config = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
-    
+
     module: {
         rules: [
             {
@@ -46,7 +48,10 @@ let config = {
             },
             {
                 test: /\.json$/,
-                loader: 'json-loader'
+                loader: 'file-loader',
+                query: {
+                    name: 'assets/[name].json'
+                }
             },
             {
                 test: /\.css$/,
@@ -57,7 +62,7 @@ let config = {
             }
         ]
     },
-    
+
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html'
@@ -103,7 +108,7 @@ if (__PRODUCTION__) {
         chunkFilename: '[id].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
     };
-    
+
     config.plugins.push(
         new CleanWebpackPlugin(['dist/*']),
         new ExtractTextPlugin('[name].[contenthash].css'),

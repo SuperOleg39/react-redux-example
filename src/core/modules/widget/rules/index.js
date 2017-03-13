@@ -1,4 +1,4 @@
-import { getRules } from '../../../services/rulesService';
+import getRules from 'core/services/rulesService';
 
 const FETCH_RULES_REQUEST = 'FETCH_RULES_REQUEST';
 const FETCH_RULES_FAILURE = 'FETCH_RULES_FAILURE';
@@ -50,13 +50,18 @@ export const fetchRulesSuccess = (data) => ({
     payload: data,
 });
 
-function fetchRules(dispatch) {
-    dispatch(fetchRulesRequest());
+export function fetchRules() {
+    return (dispatch) => {
+        dispatch(fetchRulesRequest());
 
-    return getRules()
-        .then((response) => response.json())
-        .then((json) => dispatch(fetchRulesSuccess(json)))
-        .catch((error) => dispatch(fetchRulesFailure(error)));
+        return getRules()
+            .then((response) => dispatch(fetchRulesSuccess(response.data)))
+            .catch((error) => dispatch(fetchRulesFailure(error)));
+    };
 }
 
-export const fetchRulesCreator = () => (dispatch) => fetchRules(dispatch);
+export const types = {
+    FETCH_RULES_REQUEST,
+    FETCH_RULES_FAILURE,
+    FETCH_RULES_SUCCESS
+};
