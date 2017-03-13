@@ -9,7 +9,8 @@
     "lint": "eslint --ext .js --ext .jsx ./src",
     "lint:fix": "eslint --ext .js --ext .jsx --fix ./src",
     "test": "jest --verbose",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "deploy": "better-npm-run deploy:local"
   },
   "betterScripts": {
     "dev:local": {
@@ -20,6 +21,12 @@
     },
     "build:local": {
       "command": "webpack --display-chunks --progress",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "deploy:local": {
+      "command": "npm run lint && npm test && npm run build",
       "env": {
         "NODE_ENV": "production"
       }
