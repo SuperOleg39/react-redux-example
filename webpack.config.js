@@ -14,18 +14,7 @@ const config = {
     context: path.resolve(__dirname, 'src'),
 
     entry: {
-        main: './index',
-        vendor: [
-            'react',
-            'react-dom',
-            'react-redux',
-            'react-router',
-            'react-router-redux',
-            'redux-thunk',
-            'redux',
-            'react-redux-form',
-            'axios',
-        ]
+        main: './index'
     },
 
     output: {
@@ -76,7 +65,10 @@ const config = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: Infinity
+            minChunks: (module) => {
+                // this assumes your vendor imports exist in the node_modules directory
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
         })
     ],
 

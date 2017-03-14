@@ -17,6 +17,7 @@ const ControlTextField = (props) => {
                 onBlur: (props) => props.onBlur,
                 onFocus: (props) => props.onFocus,
                 value: (props) => props.modelValue,
+                fieldValue: (props) => props.fieldValue,
             }}
             controlProps={{
                 model,
@@ -32,7 +33,7 @@ ControlTextField.propTypes = {
     validators: React.PropTypes.object,
     messages: React.PropTypes.object,
     label: React.PropTypes.string,
-    modelValue: React.PropTypes.string,
+    fieldValue: React.PropTypes.object,
 };
 
 export default ControlTextField;

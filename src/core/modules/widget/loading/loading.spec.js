@@ -9,13 +9,11 @@ import reducer, * as actions from './index';
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-const host = 'http://example.com/';
-axios.defaults.host = host;
 axios.defaults.adapter = httpAdapter;
 
 describe('Ducks модуль Cтатус загрузки виджета', () => {
     it('Async action creator fetchData создает action FETCH_SUCCESS по успешному завершению запроса', () => {
-        nock(host)
+        nock('http://example.com/')
             .get('/info')
             .reply(200, { data: 2 });
 
@@ -32,7 +30,7 @@ describe('Ducks модуль Cтатус загрузки виджета', () =>
     });
 
     it('Async action creator fetchData создает action FETCH_FAILURE при получении ошибки от сервера', () => {
-        nock(host)
+        nock('http://example.com/')
             .get('/info')
             .reply(500, { message: 'Произошла ошибка' });
 

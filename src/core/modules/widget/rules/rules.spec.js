@@ -14,13 +14,11 @@ jest.mock('core/services/rulesService', () => {
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-const host = 'http://example.com/';
-axios.defaults.host = host;
 axios.defaults.adapter = httpAdapter;
 
 describe('Ducks модуль Правила валидации', () => {
     it('Async action creator fetchRules создает action FETCH_RULES_SUCCESS по успешному завершению запроса', () => {
-        nock(host)
+        nock('http://example.com/')
             .get('/info.json')
             .reply(200, [1]);
 
@@ -37,7 +35,7 @@ describe('Ducks модуль Правила валидации', () => {
     });
 
     it('Async action creator fetchRules создает action FETCH_RULES_FAILURE при получении ошибки от сервера', () => {
-        nock(host)
+        nock('http://example.com/')
             .get('/info.json')
             .reply(500, { message: 'Произошла ошибка' });
 
