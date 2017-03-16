@@ -1,12 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Errors } from 'react-redux-form';
 import MuiTextField from 'material-ui/TextField';
 
 import './textField.css';
-
-const Field = (props) => (
-    <input {...props} />
-);
 
 const TextField = (props) => {
     const { model, label, messages, value, fieldValue, onChange, onBlur, onFocus } = props;
@@ -15,7 +11,6 @@ const TextField = (props) => {
         <div>
             <MuiTextField
                 id={model}
-                name={model}
                 floatingLabelText={label}
                 value={value}
                 onFocus={onFocus}
@@ -34,9 +29,7 @@ const TextField = (props) => {
                         ''
                     )
                 }
-            >
-                <Field />
-            </MuiTextField>
+            />
         </div>
     );
 };
@@ -47,7 +40,7 @@ TextField.propTypes = {
     messages: React.PropTypes.object,
     value: React.PropTypes.string,
     fieldValue: React.PropTypes.object,
-    onChange: React.PropTypes.func,
+    onChange: React.PropTypes.func.isRequired,
     onBlur: React.PropTypes.func,
     onFocus: React.PropTypes.func,
     children: React.PropTypes.node,

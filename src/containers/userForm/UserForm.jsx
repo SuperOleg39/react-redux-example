@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { isRequired } from '../../core/services/validatorService';
+import { isRequired, isEmail } from '../../core/services/validatorService';
 import ControlTextField from '../controlTextField/ControlTextField';
 
 const Form = () => (
@@ -10,9 +10,11 @@ const Form = () => (
             label="Имя"
             validators={{
                 isRequired,
+                isEmail
             }}
             messages={{
                 isRequired: 'Name is required',
+                isEmail: 'Name is not valid',
             }}
         />
         <ControlTextField
