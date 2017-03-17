@@ -32,9 +32,7 @@ AppControl.propTypes = {
     isLoading: React.PropTypes.bool,
 };
 
-AppControl = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps,
 )(AppControl);
-
-export default AppControl;

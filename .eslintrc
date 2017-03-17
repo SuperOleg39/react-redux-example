@@ -8,7 +8,9 @@
     "jest": true,
     "describe": true,
     "it": true,
-    "expect": true
+    "expect": true,
+    "beforeEach": true,
+    "beforeAll": true
   },
   "rules": {
     "linebreak-style": 0,

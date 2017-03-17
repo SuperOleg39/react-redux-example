@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Control } from 'react-redux-form';
 
-import TextField from '../../components/textField/TextField';
+import TextField from 'components/textField/TextField';
 
 const ControlTextField = (props) => {
     const { validators, messages, model, label } = props;

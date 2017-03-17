@@ -1,39 +1,23 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { shallow } from 'enzyme';
 import TextField from './TextField';
 
-function setup() {
-    const props = {
-        model: 'user.name',
-        value: 'Олег',
-        onChange: jest.fn(),
-        fieldValue: {}
-    };
-    const mountWithContext = (node) => mount(node, {
-        context: {
-            muiTheme: getMuiTheme(),
-        },
-        childContextTypes: {
-            muiTheme: React.PropTypes.object.isRequired,
-        }
-    });
-    const enzymeWrapper = mountWithContext(<TextField {...props} />);
+const props = {
+    model: 'user.name',
+    onChange: jest.fn(),
+    fieldValue: { }
+};
 
-    return {
-        props,
-        enzymeWrapper
-    };
-}
+let component;
+let textField;
 
 describe('Компонент TextField', () => {
-    it('Успешный рендер компонента', () => {
-        const { enzymeWrapper, props } = setup();
-        const input = enzymeWrapper.find('input');
-        const inputProps = input.props();
+    beforeAll(() => {
+        component = shallow(<TextField {...props} />).shallow();
+        textField = component.find('TextField');
+    });
 
-        expect(input).toHaveLength(1);
-        expect(inputProps.value).toBe(props.value);
-        expect(inputProps.id).toBe(props.model);
+    it('рендерит компонент TextField (Material UI)', () => {
+        expect(textField).toHaveLength(1);
     });
 });

@@ -36,10 +36,10 @@ const TextField = (props) => {
 
 TextField.propTypes = {
     model: React.PropTypes.string.isRequired,
+    fieldValue: React.PropTypes.object.isRequired,
     label: React.PropTypes.string,
     messages: React.PropTypes.object,
     value: React.PropTypes.string,
-    fieldValue: React.PropTypes.object,
     onChange: React.PropTypes.func.isRequired,
     onBlur: React.PropTypes.func,
     onFocus: React.PropTypes.func,
