@@ -6,7 +6,7 @@ import nock from 'nock';
 
 import reducer, * as actions from './index';
 
-jest.mock('core/services/rulesService', () => {
+jest.mock('services/rulesService', () => {
     const axios = require('axios');
     return () => axios.get('http://example.com/info.json');
 });

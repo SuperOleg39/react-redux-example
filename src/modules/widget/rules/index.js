@@ -1,4 +1,4 @@
-import getRules from 'core/services/rulesService';
+import getRules from 'services/rulesService';
 
 const FETCH_RULES_REQUEST = 'FETCH_RULES_REQUEST';
 const FETCH_RULES_FAILURE = 'FETCH_RULES_FAILURE';

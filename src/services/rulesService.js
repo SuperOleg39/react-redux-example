@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const rules = require('core/modules/widget/rules/rules.json');
+const rules = require('modules/widget/rules/rules.json');
 
 const getRules = () => axios.get(rules);
 

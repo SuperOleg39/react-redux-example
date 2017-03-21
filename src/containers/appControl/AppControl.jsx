@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRules } from '../../core/modules/widget/rules';
-import AppLayout from '../../components/appLayout/AppLayout';
+import { fetchRules } from 'modules/widget/rules';
+import AppLayout from 'layouts/appLayout/AppLayout';
 
 const mapStateToProps = (state) => ({
     isLoading: state.widget.rules.isLoading,

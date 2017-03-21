@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { isRequired, isEmail } from '../../core/services/validatorService';
-import ControlTextField from '../controlTextField/ControlTextField';
+import { isRequired, isEmail } from 'services/validatorService';
+import ControlTextField from 'containers/controlTextField/ControlTextField';
 
 const Form = () => (
     <form>

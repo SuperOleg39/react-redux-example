@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import AppControl from '../../containers/appControl/AppControl';
-import UserForm from '../../containers/userForm/UserForm';
-import NotFound from '../../components/notFound/NotFound';
+import AppControl from 'containers/appControl/AppControl';
+import UserForm from './form';
+import NotFound from './notFound';
 
 const routes = (
     <Route path="/" component={AppControl}>

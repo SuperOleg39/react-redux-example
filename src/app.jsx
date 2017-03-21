@@ -5,8 +5,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import configureStore from './core/store';
-import routes from './core/routes';
+import configureStore from './store';
+import routes from './routes';
 
 function render(mountNode, preloadState) {
     const store = configureStore(preloadState);
