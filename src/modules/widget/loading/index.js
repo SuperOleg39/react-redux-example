@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const FETCH_REQUEST = 'FETCH_REQUEST';
-const FETCH_FAILURE = 'FETCH_FAILURE';
-const FETCH_SUCCESS = 'FETCH_SUCCESS';
+const FETCH_REQUEST = 'widget/loading/FETCH_REQUEST';
+const FETCH_FAILURE = 'widget/loading/FETCH_FAILURE';
+const FETCH_SUCCESS = 'widget/loading/FETCH_SUCCESS';
 
 const initialState = false;
 
-const isLoading = (state = initialState, action) => {
+export default function isLoading(state = initialState, action = {}) {
     switch (action.type) {
         case FETCH_REQUEST:
             return true;
@@ -17,23 +17,25 @@ const isLoading = (state = initialState, action) => {
         default:
             return state;
     }
-};
+}
 
-export default isLoading;
+export function fetchRequest() {
+    return { type: FETCH_REQUEST };
+}
 
-export const fetchRequest = () => ({
-    type: FETCH_REQUEST,
-});
+export function fetchFailure(error) {
+    return {
+        type: FETCH_FAILURE,
+        payload: error,
+    };
+}
 
-export const fetchFailure = (error) => ({
-    type: FETCH_FAILURE,
-    payload: error,
-});
-
-export const fetchSuccess = (data) => ({
-    type: FETCH_SUCCESS,
-    payload: data,
-});
+export function fetchSuccess(data) {
+    return {
+        type: FETCH_SUCCESS,
+        payload: data,
+    };
+}
 
 export function fetchData() {
     return (dispatch) => {

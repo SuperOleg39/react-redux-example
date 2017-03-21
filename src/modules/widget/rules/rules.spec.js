@@ -17,14 +17,14 @@ const mockStore = configureStore(middlewares);
 axios.defaults.adapter = httpAdapter;
 
 describe('Ducks модуль Правила валидации', () => {
-    it('Async action creator fetchRules создает action FETCH_RULES_SUCCESS по успешному завершению запроса', () => {
+    it('Async action creator fetchRules создает action FETCH_SUCCESS по успешному завершению запроса', () => {
         nock('http://example.com/')
             .get('/info.json')
             .reply(200, [1]);
 
         const expectedActions = [
-            { type: actions.types.FETCH_RULES_REQUEST },
-            { type: actions.types.FETCH_RULES_SUCCESS, payload: [1] }
+            { type: actions.types.FETCH_REQUEST },
+            { type: actions.types.FETCH_SUCCESS, payload: [1] }
         ];
         const store = mockStore({ data: [] });
 
@@ -34,14 +34,14 @@ describe('Ducks модуль Правила валидации', () => {
             });
     });
 
-    it('Async action creator fetchRules создает action FETCH_RULES_FAILURE при получении ошибки от сервера', () => {
+    it('Async action creator fetchRules создает action FETCH_FAILURE при получении ошибки от сервера', () => {
         nock('http://example.com/')
             .get('/info.json')
             .reply(500, { message: 'Произошла ошибка' });
 
         const expectedActions = [
-            { type: actions.types.FETCH_RULES_REQUEST },
-            { type: actions.types.FETCH_RULES_FAILURE, payload: { message: 'Произошла ошибка' } }
+            { type: actions.types.FETCH_REQUEST },
+            { type: actions.types.FETCH_FAILURE, payload: { message: 'Произошла ошибка' } }
         ];
         const store = mockStore({ data: [] });
 
@@ -62,9 +62,9 @@ describe('Ducks модуль Правила валидации', () => {
             expect(reducer(undefined, {})).toEqual(initialState);
         });
 
-        it('Обрабатывает FETCH_RULES_REQUEST', () => {
+        it('Обрабатывает FETCH_REQUEST', () => {
             expect(reducer(initialState, {
-                type: actions.types.FETCH_RULES_REQUEST
+                type: actions.types.FETCH_REQUEST
             })).toEqual({
                 isLoading: true,
                 error: false,
@@ -72,9 +72,9 @@ describe('Ducks модуль Правила валидации', () => {
             });
         });
 
-        it('Обрабатывает FETCH_RULES_SUCCESS', () => {
+        it('Обрабатывает FETCH_SUCCESS', () => {
             expect(reducer(initialState, {
-                type: actions.types.FETCH_RULES_SUCCESS,
+                type: actions.types.FETCH_SUCCESS,
                 payload: [1]
             })).toEqual({
                 isLoading: false,
@@ -83,9 +83,9 @@ describe('Ducks модуль Правила валидации', () => {
             });
         });
 
-        it('Обрабатывает FETCH_RULES_FAILURE', () => {
+        it('Обрабатывает FETCH_FAILURE', () => {
             expect(reducer(initialState, {
-                type: actions.types.FETCH_RULES_FAILURE,
+                type: actions.types.FETCH_FAILURE,
                 payload: { message: 'Произошла ошибка' }
             })).toEqual({
                 isLoading: false,
