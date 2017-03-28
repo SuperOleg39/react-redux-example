@@ -5,7 +5,7 @@ import TextField from './TextField';
 const props = {
     model: 'user.name',
     onChange: jest.fn(),
-    fieldValue: { }
+    showErrors: false
 };
 
 let component;
@@ -17,7 +17,7 @@ describe('Компонент TextField', () => {
         textField = component.find('TextField');
     });
 
-    it('рендерит компонент TextField (Material UI)', () => {
+    it('содержит компонент TextField (Material UI)', () => {
         expect(textField).toHaveLength(1);
     });
 });

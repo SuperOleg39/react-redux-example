@@ -38,15 +38,15 @@ describe('Контейнер ControlTextField', () => {
         input = container.find('input');
     });
 
-    it('рендерит Control контейнер (react-redux-form)', () => {
+    it('содержит Control контейнер (react-redux-form)', () => {
         expect(container.find('Control')).toHaveLength(1);
     });
 
-    it('рендерит TextField компоненты (нашего приложения и Material UI)', () => {
+    it('содержит TextField компоненты (нашего приложения и Material UI)', () => {
         expect(container.find('TextField')).toHaveLength(2);
     });
 
-    it('рендерит input', () => {
+    it('содержит элемент input', () => {
         expect(input).toHaveLength(1);
     });
 

@@ -5,7 +5,7 @@ import MuiTextField from 'material-ui/TextField';
 import './textField.css';
 
 const TextField = (props) => {
-    const { model, label, messages, value, fieldValue, onChange, onBlur, onFocus } = props;
+    const { model, label, messages, value, showErrors, onChange, onBlur, onFocus } = props;
 
     return (
         <div>
@@ -17,7 +17,7 @@ const TextField = (props) => {
                 onChange={onChange}
                 onBlur={onBlur}
                 errorText={
-                    (!fieldValue.valid && fieldValue.touched) ? (
+                    (showErrors) ? (
                         <Errors
                             model={model}
                             messages={messages}
@@ -36,7 +36,7 @@ const TextField = (props) => {
 
 TextField.propTypes = {
     model: React.PropTypes.string.isRequired,
-    fieldValue: React.PropTypes.object.isRequired,
+    showErrors: React.PropTypes.bool.isRequired,
     label: React.PropTypes.string,
     messages: React.PropTypes.object,
     value: React.PropTypes.string,

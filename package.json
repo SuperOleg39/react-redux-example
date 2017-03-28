@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=6.*"
+  },
   "scripts": {
     "start": "better-npm-run dev:local",
     "build": "better-npm-run build:local",

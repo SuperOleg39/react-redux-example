@@ -22,7 +22,7 @@ describe('Контейнер AppControl', () => {
         container = shallow(<AppControl store={store} />).shallow();
     });
 
-    it('рендерит AppComponent', () => {
+    it('содержит AppComponent', () => {
         expect(container.find('AppComponent')).toHaveLength(1);
     });
 });

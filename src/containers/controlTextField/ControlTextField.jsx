@@ -17,7 +17,7 @@ const ControlTextField = (props) => {
                 onBlur: (props) => props.onBlur,
                 onFocus: (props) => props.onFocus,
                 value: (props) => props.modelValue,
-                fieldValue: (props) => props.fieldValue,
+                showErrors: (props) => (!props.fieldValue.valid && props.fieldValue.touched),
             }}
             controlProps={{
                 model,
