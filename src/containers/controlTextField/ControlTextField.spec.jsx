@@ -29,8 +29,8 @@ describe('Контейнер ControlTextField', () => {
                 muiTheme: getMuiTheme()
             },
             childContextTypes: {
-                muiTheme: React.PropTypes.object.isRequired,
-                store: React.PropTypes.object.isRequired
+                muiTheme: PropTypes.object.isRequired,
+                store: PropTypes.object.isRequired
             }
         });
 

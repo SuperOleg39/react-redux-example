@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Errors } from 'react-redux-form';
 import MuiTextField from 'material-ui/TextField';
 
@@ -35,15 +36,15 @@ const TextField = (props) => {
 };
 
 TextField.propTypes = {
-    model: React.PropTypes.string.isRequired,
-    showErrors: React.PropTypes.bool.isRequired,
-    label: React.PropTypes.string,
-    messages: React.PropTypes.object,
-    value: React.PropTypes.string,
-    onChange: React.PropTypes.func.isRequired,
-    onBlur: React.PropTypes.func,
-    onFocus: React.PropTypes.func,
-    children: React.PropTypes.node,
+    model: PropTypes.string.isRequired,
+    showErrors: PropTypes.bool.isRequired,
+    label: PropTypes.string,
+    messages: PropTypes.object,
+    value: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
+    children: PropTypes.node,
 };
 
 export default TextField;

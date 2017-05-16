@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
 import AppBar from 'material-ui/AppBar';
@@ -22,6 +23,10 @@ const Nav = () => (
         <MenuItem
             containerElement={<Link to="/form" />}
             primaryText="Form"
+        />
+        <MenuItem
+            containerElement={<Link to="/demo" />}
+            primaryText="Demo"
         />
         <MenuItem
             containerElement={<Link to="/123" />}
@@ -53,8 +58,8 @@ const AppComponent = (props) => {
 };
 
 AppComponent.propTypes = {
-    children: React.PropTypes.node,
-    isLoading: React.PropTypes.bool,
+    children: PropTypes.node,
+    isLoading: PropTypes.bool,
 };
 
 export default AppComponent;

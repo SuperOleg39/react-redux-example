@@ -1,5 +1,7 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb"
+  ],
   "globals": {
     "require": true,
     "window": true,

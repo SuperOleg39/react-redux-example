@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Control } from 'react-redux-form';
 
 import TextField from 'components/textField/TextField';
@@ -29,11 +30,11 @@ const ControlTextField = (props) => {
 };
 
 ControlTextField.propTypes = {
-    model: React.PropTypes.string.isRequired,
-    validators: React.PropTypes.object,
-    messages: React.PropTypes.object,
-    label: React.PropTypes.string,
-    fieldValue: React.PropTypes.object,
+    model: PropTypes.string.isRequired,
+    validators: PropTypes.object,
+    messages: PropTypes.object,
+    label: PropTypes.string,
+    fieldValue: PropTypes.object,
 };
 
 export default ControlTextField;

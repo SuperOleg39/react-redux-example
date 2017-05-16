@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const { CheckerPlugin } = require('awesome-typescript-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -24,12 +25,21 @@ const config = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
 
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader'
+            },
+            // {
+            //     enforce: 'pre',
+            //     test: /\.js$/,
+            //     loader: 'source-map-loader'
+            // },
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
@@ -53,6 +63,7 @@ const config = {
     },
 
     plugins: [
+        new CheckerPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html'
         }),

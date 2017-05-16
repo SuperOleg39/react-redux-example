@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { fetchRules } from 'modules/widget/rules';
@@ -27,9 +28,9 @@ class AppControl extends Component {
 }
 
 AppControl.propTypes = {
-    fetchRules: React.PropTypes.func.isRequired,
-    children: React.PropTypes.node,
-    isLoading: React.PropTypes.bool,
+    fetchRules: PropTypes.func.isRequired,
+    children: PropTypes.node,
+    isLoading: PropTypes.bool,
 };
 
 export default connect(
